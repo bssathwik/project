@@ -1,7 +1,7 @@
 // HomePage.js
 
 import React, { useState } from 'react';
-import './Homepage.css'; // Assuming style.css is in the same directory
+// import './Homepage.css'; // Assuming style.css is in the same directory
 import { IonIcon } from 'react-ion-icon'; // Ensure to install react-ion-icon if you haven't
 
 const HomePage = () => {
@@ -17,7 +17,9 @@ const HomePage = () => {
                 <ul>
                     <li><a className="a" href="#home">Home</a></li>
                     <li><a className="a" href="explore.html">Videos</a></li>
-                    <li><a className="a" href="book_a_coaching.html">Coaching</a></li>
+                    <li><a className="a" href="book_a_coaching.html">
+                        Coaching
+                        </a></li>
                     <li><a className="a" href="upcoww.html">Courses</a></li>
                     <li><a className="login" onClick={toggleLogin}>Login</a></li>
                 </ul>
@@ -116,7 +118,7 @@ const HomePage = () => {
                     />
                     <Service
                         videoSrc="video3.mp4"
-                        posterSrc="thumbnail3.jpg"
+                        posterSrc="./thumbnail3.jpg"
                         title="Workshops & Webinars"
                         description="Join our interactive workshops and webinars led by top experts in sports psychology and mental training. These sessions provide valuable insights into the mental aspects of sports performance."
                         link="upcoww.html"

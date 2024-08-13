@@ -1,7 +1,7 @@
 body{
     padding: 0px;
     margin: 0px;
-    background-image: url('../public/bg_home.jpeg');
+    background-image: url('C:\Users\sathw\OneDrive\Desktop\project1\project\froentend\public\bg_home.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -414,3 +414,14 @@ body{
         bottom: 0;
         width: 100%;
     }
+    @media (max-width: 768px) {
+        .services {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .service {
+            width: 80%;
+        }
+    }
+    

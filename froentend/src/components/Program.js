@@ -1,5 +1,5 @@
 import React from 'react';
-import './Program.css'; // Import any specific CSS for Program
+// import './Program.css'; // Import any specific CSS for Program
 
 const programs = [
     {
