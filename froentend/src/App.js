@@ -1,43 +1,34 @@
 // App.js
-
 import React from 'react';
-
-
 // import './Style.css'; // Import the CSS file for styles
-
 import BookingSection from './components/BookingSection/BookingSection';
-import ExplorePrograms from './components/ExplorePrograms/ExplorePrograms';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { SignIn } from './components/signin';
-import MyComponent from './components/MyComponent';
-import { SignUp } from './components/signup';
-import SignOut from './components/signout';
-import { ForgotPassword } from './forgotpass';
+
+import MyComponent from './components/Homepage.css/MyComponent';
+
+import SignOut from './components/Homepage.css/signout';
+import { ForgotPassword } from './components/Homepage.css/forgotpass';
+import { SignUp } from './components/Homepage.css/signup';
+import Signin from './components/Homepage.css/signin';
+import ExplorePrograms from './components/ExplorePrograms/ExplorePrograms';
+import UpcomingEvents from './components/UpcomingEvents/UpcomingEvents';
 function App() {
     return (
       <>
       <div>
         <Router>
           <Routes>
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<SignUp />} />
-          
           <Route path="/" element={<MyComponent />} />
-          {/* <Route path="/login" element={<toggleLogin/>} /> */}
           <Route path="/bookingsection" element={<BookingSection />} />
           <Route path="/explore" element={<ExplorePrograms />} />
           <Route path="/signout" element={<SignOut/>}/>
           <Route path="/forgotpass" element={<ForgotPassword/>} />
-          {/* <Route path="/home1" element={<Home1 />} />
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="/CalorieCalculator" element={<CalorieCalculator/>}/>
-          <Route path="/HydrationCalculator" element={<HydrationCalculator/>}/>
-          <Route path="/MacronutritionCalculator" element={<MacronutrientCalculator/>}/>
-          <Route path="/nutrition" element={<NutritionInfoPage/>}/>
-          {/* <Route path="/about" element={<Menu/>}/> */}
-          {/*<Route path="/addmeal" element={<HomePage/>}/>
-          <Route path="/result" element={<ResultPage/>}/> */} 
+          <Route path="/webinar"element={<UpcomingEvents/>}/>
+          {/* <Route path="/register"element={<LoginForm/>}/> */}
+          
   
   
   </Routes>
@@ -45,10 +36,10 @@ function App() {
       
       
       </div>
+      
   
       
       </>
     );
   }
-  
   export default App;

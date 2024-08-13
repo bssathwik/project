@@ -8,7 +8,7 @@ app.use(express.json())
 
 
 app.post('/signin', async(req, res) => {
-   const userdata= await db.collection("ast").findOne({gmail:req.body.gmail})
+   const userdata= await db.collection("ast").findOne({email:req.body.email})
    if(!userdata){
     return res.json({
         status:"fail",
@@ -30,7 +30,7 @@ app.post('/signin', async(req, res) => {
    
 })
 app.post('/signup',async(req,res)=>{
-    await db.collection("ast").insertOne({gmail:req.body.gmail,phone:req.body.phone,password:req.body.password,register:req.body.register})
+    await db.collection("ast").insertOne({email:req.body.email,mobile:req.body.mobile,password:req.body.password,name:req.body.name})
     .then((result)=>{
         res.json(result)
     })

@@ -84,19 +84,34 @@ export const SignIn = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   const Signin = async () => {
-    try {
-      const res = await axios.post(api + "/signin", { email, password });
-      if (res.data.message) {
-        console.log(res?.data?.values);
-        alert(res.data.message);
-        navigate("/"); // Redirect to /home1 on successful sign-in
-      } else {
-        alert(res.data.error);
-        navigate("/signup"); // Redirect to /signup on error
-      }
-    } catch (e) {
-      console.log(e);
-    }
+    // try {
+    //   const res = await axios.post(api + "/signin", { email, password });
+    //   if (res.data.message) {
+    //     console.log(res?.data?.values);
+    //     alert(res.data.message);
+    //     navigate("/"); // Redirect to /home1 on successful sign-in
+    //   } else {
+    //     alert(res.data.error);
+    //     navigate("/signup"); // Redirect to /signup on error
+    //   }
+    // } catch (e) {
+    //   console.log(e);
+    // }
+    {
+      await axios.post("http://localhost:9000/signin",{email,password})
+      .then((res)=>{console.log(res)
+          if(res.data.status==="fail"){
+              alert(res.data.message)
+              window.location.href="/signup"
+              
+          } else {
+              alert(res.data.message)
+              window.location.href="/"
+          }
+      })
+      .catch((e)=>console.log(e))
+  }
+
   };
 
   const handleForgotPassword = () => {

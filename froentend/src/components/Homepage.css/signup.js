@@ -13,18 +13,33 @@ export const SignUp = () => {
   const [name, setName] = useState("");
 
   const signup = async () => {
-    try {
-      const response = await axios.post(api + "/signup", { email, name, mobile, password });
-      if (response.data.message) {
-        console.log(response?.data?.values);
-        alert(response.data.message);
-        navigate('/home1'); // Redirect to home page on successful signup
-      } else {
-        alert(response.data.error);
-      }
-    } catch (e) {
-      console.log(e);
-    }
+    // try {
+    //   const response = await axios.post(api + "/signup", { email, name, mobile, password });
+    //   if (response.data.message) {
+    //     console.log(response?.data?.values);
+    //     alert(response.data.message);
+    //     navigate('/home1'); // Redirect to home page on successful signup
+    //   } else {
+    //     alert(response.data.error);
+    //   }
+    // } catch (e) {
+    //   console.log(e);
+    // }
+    {
+      await axios.post("http://localhost:9000/signup",{email,password,mobile,name})
+      .then((res)=>{
+          console.log(res.data)
+          if(res.data){
+              console.log(res?.data?.values)
+              alert("login sucessfully")
+              window.location.href="/signin"
+          } else {
+              alert("user not found")
+              window.location.href="/signup"
+          }
+      })
+      .catch((e)=>console.log(e))
+  }
   };
 
   return (
