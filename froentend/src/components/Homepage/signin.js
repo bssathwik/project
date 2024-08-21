@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { api } from "../api";
 
-const api = "your_api_endpoint_here"; // Replace with your actual API endpoint
+// const api = "your_api_endpoint_here"; // Replace with your actual API endpoint
 
 const styles = {
   container: {
@@ -98,7 +99,7 @@ export const SignIn = () => {
     //   console.log(e);
     // }
     {
-      await axios.post("http://localhost:9000/signin",{email,password})
+      await axios.post(api + "/signin",{email,password})
       .then((res)=>{console.log(res)
           if(res.data.status==="fail"){
               alert(res.data.message)

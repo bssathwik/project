@@ -50,6 +50,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './signup.css';
+import { api } from '../api';
 const Verify = () => {
     const [email, setEmail] = useState('');
     const [code, setCode] = useState('');
@@ -58,7 +59,7 @@ const Verify = () => {
 
     const handleSendCode = async () => {
         try {
-            const response = await axios.post('http://localhost:9000/send-verification', { email });
+            const response = await axios.post(api +"/send-verification", { email });
             setMessage(response.data.message);
             setIsCodeSent(true);
         } catch (error) {
@@ -68,7 +69,7 @@ const Verify = () => {
 
     const handleVerifyCode = async () => {
         try {
-            const response = await axios.post('http://localhost:9000/verify-code', { email, code });
+            const response = await axios.post(api+"/verify-code", { email, code });
             setMessage(response.data.message);
             console.log(response.data.message);
         } catch (error) {

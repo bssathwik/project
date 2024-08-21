@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './signup.css'; // Import the CSS file for styling
 import Verify from './verification';
+import { api } from '../api';
 // import Verify from '../verification';
 
-const api = "your_api_endpoint_here"; // Replace with your actual API endpoint
+// const api = "your_api_endpoint_here"; // Replace with your actual API endpoint
 
 export const SignUp = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export const SignUp = () => {
     //   console.log(e);
     // }
     {
-      await axios.post("http://localhost:9000/signup",{email,password,mobile,name,title,context})
+      await axios.post(api + "/signup",{email,password,mobile,name,title,context})
       .then((res)=>{
           console.log(res.data)
           if(res.data){
