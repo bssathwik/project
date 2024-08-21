@@ -4,7 +4,7 @@ import './Style.css';
 import '@fontsource/bebas-neue';
 import '@fontsource/foldit';
 
-const MyComponent = () => {
+const Home = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
@@ -19,8 +19,11 @@ const MyComponent = () => {
           <li><a className="a" href="/explore">Videos</a></li>
           <li><a className="a" href="/bookingsection">Coaching</a></li>
           <li><a className="a" href="/webinar">Courses</a></li>
+          <li><a className="a" href="/articels">articles</a></li>
+          <li><a className="a" href="/exercise">exercise</a></li>
           <li><a className="a" href="/signin" >Login</a></li>
           <li><a className="a" href="/signup" >Register</a></li>
+          
           {/* <li><a className="login" href="#login" onClick={toggleLogin}>Login</a></li> */}
         </ul>
       </nav>
@@ -225,4 +228,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default Home;

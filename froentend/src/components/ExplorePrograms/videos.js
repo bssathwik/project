@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ExplorePrograms.css';
 
 const programs = [
@@ -64,21 +64,33 @@ const testimonials = [
   { quote: "The Emotion Regulation Techniques program helped me manage my anxiety better during competitions. I can't thank the team enough for their support!", author: "Casey, Competitive Dancer" },
 ];
 
-const ExplorePrograms = () => {
+const Videos = () => {
+  const [uploads, setUploads] = useState([]);
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const newUpload = { name: file.name, url: URL.createObjectURL(file) };
+      setUploads([...uploads, newUpload]);
+    }
+  };
+
+  const handleDeleteUpload = (fileUrl) => {
+    setUploads(uploads.filter(upload => upload.url !== fileUrl));
+  };
   return (
     <>
-    <div>
+    <div className='body'>
 
     <nav >
     <ul>
-    <li><a className="a" href="/home">Home</a></li>
-          <li><a className="a" href="/explore">Videos</a></li>
-          <li><a className="a" href="/bookingsection">Coaching</a></li>
+    <li><a className="a" href="/">Home</a></li>
+          <li><a className="a" href="/videos">Videos</a></li>
+          <li><a className="a" href="/booking">Coaching</a></li>
           <li><a className="a" href="/webinar">Courses</a></li>
-          <li><a className="a" href="/articels">articles</a></li>
-          <li><a className="a" href="/exercise">exercise</a></li>
-          <li><a className="a" href="/signin" >Login</a></li>
-          <li><a className="a" href="/signup" >Register</a></li>
+          <li><a className="a" href="/exercises">exercise</a></li>
+          <li><a className="a" href="/article">articel</a></li>
+          <li><a className="a" href="/home">SignOut</a></li>
       
       {/* <li><a className="login" href="#login" onClick={toggleLogin}>Login</a></li> */}
     </ul>
@@ -86,11 +98,18 @@ const ExplorePrograms = () => {
     <div className='pro'>
       
 
-      <section id="hero">
-        <h2>Unlock Your Potential</h2>
-        <p>Join our mental training programs designed to enhance your performance and well-being.</p>
-        <a href="#programs" className="cta-button">Explore Programs</a>
-      </section>
+    <section className='hero' id="upload">
+            <h2>Upload Your Content</h2>
+            <input type="file" onChange={handleFileUpload} />
+            <div className="uploads-list">
+              {uploads.map((upload, index) => (
+                <div className="upload-item" key={index}>
+                  <p>{upload.name}</p>
+                  <button onClick={() => handleDeleteUpload(upload.url)}>Delete</button>
+                </div>
+              ))}
+            </div>
+          </section>
 
       <section id="programs">
         <h2>Our Programs</h2>
@@ -174,4 +193,4 @@ const ExplorePrograms = () => {
   );
 };
 
-export default ExplorePrograms;
+export default Videos;

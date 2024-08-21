@@ -102,7 +102,9 @@ export const SignIn = () => {
       .then((res)=>{console.log(res)
           if(res.data.status==="fail"){
               alert(res.data.message)
-              window.location.href="/signup"
+              console.log();
+              
+              // window.location.href="/signup"
               
           } else {
               alert(res.data.message)

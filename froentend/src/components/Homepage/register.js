@@ -5,12 +5,14 @@ import './signup.css'; // Import the CSS file for styling
 
 const api = "your_api_endpoint_here"; // Replace with your actual API endpoint
 
-export const SignUp = () => {
+export const Rigister = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [context, setContext] = useState("");
 
   const signup = async () => {
     // try {
@@ -26,16 +28,16 @@ export const SignUp = () => {
     //   console.log(e);
     // }
     {
-      await axios.post("http://localhost:9000/signup",{email,password,mobile,name})
+      await axios.post("http://localhost:9000/signup",{email,password,mobile,name,title,context})
       .then((res)=>{
           console.log(res.data)
           if(res.data){
               console.log(res?.data?.values)
-              alert("login sucessfully")
-              window.location.href="/signin"
+              alert(" uploded succefully on check")
+              window.location.href="/home"
           } else {
               alert("user not found")
-              window.location.href="/signup"
+              // window.location.href="/signup"
           }
       })
       .catch((e)=>console.log(e))
@@ -45,7 +47,7 @@ export const SignUp = () => {
   return (
     <div className="signup-container">
       <div className="signup-card">
-        <h2 className="signup-heading">Create Your Account</h2>
+        <h2 className="signup-heading">upload the article</h2>
         <div className="signup-form">
           <label htmlFor="email">Email address</label>
           <input
@@ -68,18 +70,32 @@ export const SignUp = () => {
             placeholder="Enter your mobile number"
             onChange={(e) => setMobile(e.target.value)}
           />
-          <label htmlFor="password">Password</label>
+          {/* <label htmlFor="password">Password</label>
           <input
             id="password"
             type="password"
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
+          /> */}
+          <label htmlFor="title">Title</label>
+          <input
+            id="title"
+            type="text"
+            placeholder="Enter your title"
+            onChange={(e) => setTitle(e.target.value)}
           />
-          <button onClick={signup} className="signup-button">Sign Up</button>
+          <label htmlFor="context">Context</label>
+          <input
+            id="context"
+            type="text"
+            placeholder="Enter your context"
+            onChange={(e) => setContext(e.target.value)}
+          />
+          <button onClick={signup} className="signup-button">Submit</button>
         </div>
-        <p className="signin-link">
+        {/* <p className="signin-link">
           Already have an account? <a href="/signin">Sign In</a>
-        </p>
+        </p> */}
       </div>
     </div>
   );

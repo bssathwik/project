@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 import './BookingSection.css'; // Import any specific CSS for BookingSection
 
-const BookingSection = () => {
+const Booking = () => {
     const [isFormVisible, setIsFormVisible] = useState(false);
 
     return (
         <>
         <nav >
         <ul>
-        <li><a className="a" href="/home">Home</a></li>
-          <li><a className="a" href="/explore">Videos</a></li>
-          <li><a className="a" href="/bookingsection">Coaching</a></li>
+        <li><a className="a" href="/">Home</a></li>
+          <li><a className="a" href="/videos">Videos</a></li>
+          <li><a className="a" href="/booking">Coaching</a></li>
           <li><a className="a" href="/webinar">Courses</a></li>
-          <li><a className="a" href="/articels">articles</a></li>
-          <li><a className="a" href="/exercise">exercise</a></li>
-          <li><a className="a" href="/signin" >Login</a></li>
-          <li><a className="a" href="/signup" >Register</a></li>
-          
+          <li><a className="a" href="/exercises">exercise</a></li>
+          <li><a className="a" href="/article">articel</a></li>
+          <li><a className="a" href="/home">SignOut</a></li>
           {/* <li><a className="login" href="#login" onClick={toggleLogin}>Login</a></li> */}
         </ul>
       </nav>
@@ -67,4 +65,4 @@ const BookingForm = ({ closeForm }) => {
     );
 };
 
-export default BookingSection;
+export default Booking;
